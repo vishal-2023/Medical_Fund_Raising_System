@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ContactForm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+  </head>
+<body>
+    <div class="container">
+        <div class="form-container">
+        
+            <div class="info">
+              
+                <div class="pack">
+                  <img src="logo.jpg" alt="">
+                   <div class="text">
+                    <h2>Start a fundraiser </h2></div>
+                
+
+                <div class="text">
+                    <h2>Email</h2><br>
+                    <span>Example@gmail.com</span>
+                </div>
+
+                <div class="text">
+                    <h2>Contact-Number</h2><br>
+                    <span>+91-00000000000</span>
+                </div>
+              
+                <div class="social-button">
+                    <button> <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></button>
+                    <button> <a href=""><i class="fa fa-github" aria-hidden="true"></i> </a></button>
+                    <button> <a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i> </a></button>
+                    <button> <a href=""> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a></button>
+                </div>
+
+            </div> 
+            <!-- end of Pack class -->
+
+            </div>
+         <!-- info class End -->
+            <form class="for">
+        
+
+              <div class="input-control">
+                <label for="">Name</label><br>
+                <input type="text" placeholder="Enter Your Name" id="name">
+              </div>
+              <!-- input control End -->
+               
+
+              <div class="input-control">
+                <label for="">Email</label><br>
+                <input type="text" placeholder="Enter Your Email" id="email">
+              </div>
+              <!-- input control End -->
+
+              <div class="input-control">
+                <label for="">Contact-Number</label><br>
+                <input type="text" placeholder="Enter Your Contact Number" id="contact">
+              </div>
+              <!-- input control End -->
+
+
+              <div class="input-control">
+                <label for="">Subject</label><br>
+                <input type="text" placeholder="Enter Your Subject" id="subject">
+              </div>
+              <!-- input control End -->
+             
+              <div class="input-control">
+                <label for="">Message</label><br>
+                <textarea name="" id="message"  rows="6" placeholder="Enter Your Message"></textarea>
+              </div>
+
+               <div class="input-control" id="btn">
+                <button type="submit">submit</button>
+               </div>
+            </form>
+            <!-- form end -->
+        </div>
+        <!-- Form container End -->
+      </div>
+
+      <script src="https://smtpjs.com/v3/smtp.js">
+      </script>
+      <script>
+        var btn=document.getElementById('btn');
+        btn.addEventListener('click',function(e){
+          e.preventDefault()
+          var name=document.getElementById('name').value;
+          var email=document.getElementById('email').value;
+          var contact=document.getElementById('contact').value;
+          var subject=document.getElementById('subject').value;
+          var message=document.getElementById('message').value;
+          var body='name: '+name + '<br/> email: '+email + '<br/> contact: '+contact+'<br/> message: '+message;
+          Email.send({
+            SecureToken : "207fe2c6-617e-4b9a-9b29-79b9fa3e552b",
+            To : 'aansi11343@gmail.com',
+            From : "vishal9120296@gmail.com",
+            Subject : "Apply for Start Fundraising..",
+            Body :body
+          }).then(
+          message => alert(message)
+          );          
+        })
+      </script>
+    
+
+</body>
+</html>
